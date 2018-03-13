@@ -1,0 +1,40 @@
+﻿@model ParisianUrban.Models.Admin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Login </title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="~/Content/CSS/Style.css" />
+    </head>
+<body>
+    <header class="admin-header">
+        <div class="center-top">
+            <h1 class="main-text">Administrators</h1>
+            <h3>@ViewBag.greeting</h3>
+        </div>
+    </header><br /><br />
+
+    @using (Html.BeginForm("AdminDisplay", "Home", FormMethod.Post))
+    {
+        <div class="col-xs-3">
+            @Html.LabelFor(l => l.Username)
+            @Html.TextBoxFor(t => t.Username, new { @class = "form-control" }) <br /><br />
+        </div>
+        <div class="col-xs-3">
+            @Html.LabelFor(l => l.Password)
+            @Html.TextBoxFor(t => t.Password, new { @class = "form-control" })
+        </div>
+
+        <br /><br />
+
+              <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+    }
+</body>
+    </html>
