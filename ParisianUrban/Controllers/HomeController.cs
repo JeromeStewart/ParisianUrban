@@ -14,25 +14,28 @@ namespace ParisianUrban.Controllers
         {
             return View("HomePage");
         }
-
+    
         public ActionResult AdminDisplay()
         {
-
             return View("AdminLogin");
         }
 
         [HttpPost]
         public ActionResult AdminDisplay(string Username , string Password)
         {
+            Admin admin = new Admin();
+
+
 
             if (Username == "admin" && Password == "admin")
             {
-                ViewBag.greeting = "Weclome";
+                admin.Name = "Jerome";
+                ViewBag.greeting = "Weclome " + admin.Name;
 
                 return View("AdminLogin");
             }
 
-            return Content("You fucked up fam");
+            return Content("Something went wrong :(");
         }
     }
 }
