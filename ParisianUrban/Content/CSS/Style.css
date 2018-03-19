@@ -75,7 +75,7 @@ animation: moveInRight 3s;
 }
 
 .main-text {
-    color: #dc3545;
+    color: #fc4768 !important;
     font-family: "FarewellAngelina";
     font-weight: 300;
 }
@@ -148,6 +148,7 @@ box-shadow: 0 10px 7px;
     transform: scale(1.5);
     opacity: 0;
 }
+
 /*
                             ANIMATIONS AND FONTS
 */

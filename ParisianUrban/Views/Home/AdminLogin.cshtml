@@ -1,4 +1,4 @@
-﻿@model ParisianUrban.Models.Admin
+﻿@model ParisianUrban.Admin
 @{
     Layout = null;
 }
@@ -22,19 +22,20 @@
     @using (Html.BeginForm("AdminDisplay", "Home", FormMethod.Post))
     {
         <div class="col-xs-3">
-            @Html.LabelFor(l => l.Username)
-            @Html.TextBoxFor(t => t.Username, new { @class = "form-control" , @placeHolder = "username"}) <br /><br />
+            @Html.LabelFor(l => l.ID)
+            @Html.TextBoxFor(t => t.ID, new { @class = "form-control", @placeHolder = "ID" }) <br /><br />
         </div>
         <div class="col-xs-3">
             @Html.LabelFor(l => l.Password)
-            @Html.TextBoxFor(t => t.Password, new { @class = "form-control", @placeHolder = "password"})
+            @Html.TextBoxFor(t => t.Password, new { @class = "form-control", @placeHolder = "password" })
         </div>
 
         <br /><br />
 
-              <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Login</button>
-              </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
     }
+    <br />
 </body>
     </html>
