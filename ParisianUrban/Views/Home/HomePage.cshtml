@@ -1,4 +1,4 @@
-﻿
+﻿@model ParisianUrban.User
 @{
     Layout = null;
 }
@@ -19,6 +19,7 @@
     <link rel="Stylesheet" href="~/Content/CSS/Style.css">
 </head>
 <body>
+
     <header class="header">
         <div class="logo-box">
             <img src="~/Content/CSS/Images/imageedit_2_8893402501.png" alt="Company logo" class="logo">
@@ -32,6 +33,45 @@
         </div>
 
     </header>
+
+    <main>
+        <section class="section-login">
+
+            <div class="center-text">
+                <h2 class="secondary-head">
+                    Find your dream home today!
+                </h2>
+                <div class="col-seperator">
+                    Start searching now!
+                    <div class="login">
+                        Login
+
+                        @Html.ValidationSummary()
+                        @using (Html.BeginForm())
+    {
+                        @Html.LabelFor(l => l.Firstname)
+                        @Html.TextBoxFor(t => t.Firstname, new { @class = "form-control", @placeHolder = "First Name" })<br /><br />
+
+                        @Html.LabelFor(l => l.Lastname)
+                        @Html.TextBoxFor(t => t.Lastname, new { @class = "form-control", @placeHolder = "Last Name" })<br /><br />
+
+                        @Html.LabelFor(l => l.Email)
+                        @Html.TextBoxFor(t => t.Email, new { @class = "form-control", @placeHolder = "Email" })<br /><br />
+
+                        @Html.LabelFor(l => l.PasswordHash)
+                        @Html.PasswordFor(l => l.PasswordHash, new { @class = "form-control", @placeHolder = "Password" })<br /><br />
+
+                    <button class="btn btn-primary" type="submit">Register</button>
+}
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!--<h2 class="text-center secondary-header">Recently added</h2>-->
     <script src="~/Content/JavaScript/JavaScript.js"></script>
 </body>
 </html>

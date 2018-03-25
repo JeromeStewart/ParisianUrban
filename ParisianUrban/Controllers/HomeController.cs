@@ -17,52 +17,55 @@ namespace ParisianUrban.Controllers
             return View("HomePage");
         }
     
+        [HttpGet]
         public ActionResult AdminDisplay()
         {
             return View("AdminLogin");
         }
 
         [HttpPost]
-        public ActionResult AdminDisplay(int ID , string Password)
+        public ActionResult AdminDisplay(Admin admin)
         {
-
-            if (ModelState.IsValid)
+           
+            if (!ModelState.IsValid)
             {
-
-                var query = (
-                    from db in en.Admins
-                    where db.ID == ID && db.Password == Password
-                    select new
-                    {
-                        db.ID,
-                        db.Password,
-                        db.Name
-                    }).ToList();
-
-
-
-                if (query.FirstOrDefault() != null)
+               Admin  myAdmin = new Admin()
                 {
-                    foreach (var item in query)
-                    {
-                        ViewBag.greeting = "Welcome " + query.FirstOrDefault().Name;
+                    ID = admin.ID,
+                    Password = admin.Password
+                };
 
-                        Session["ID"] = query.FirstOrDefault().ID;
+                return View("AdminLogin", admin);
+               
+            }
 
-                        Session["Password"] = query.FirstOrDefault().Password;
-                    }
+            var query = (
+                   from db in en.Admins
+                   where db.ID == admin.ID && db.Password == admin.Password
+                   select new
+                   {
+                       db.ID,
+                       db.Password,
+                       db.Name
+                   }).ToList();
 
-                    return View("AdminLogin");
+            if (query.FirstOrDefault() != null)
+            {
+                foreach (var item in query)
+                {
+                    ViewBag.greeting = "Welcome " + query.FirstOrDefault().Name;
+
+                    Session["ID"] = query.FirstOrDefault().ID;
+
+                    Session["Password"] = query.FirstOrDefault().Password;
                 }
 
-                ViewBag.greeting = "Incorrect credentials";
+                return View("AdminLogin");
+            }
 
-                return View("AdminLogin");
-            }
-            else
-            {
-                return View("AdminLogin");
-            }
+            ViewBag.greeting = "Incorrect credentials";
+
+            return View("AdminLogin");
 
         }
     }

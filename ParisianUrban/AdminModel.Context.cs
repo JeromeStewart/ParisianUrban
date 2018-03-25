@@ -16,7 +16,7 @@ namespace ParisianUrban
     public partial class Entities : DbContext
     {
         public Entities()
-            : base("name=myDb")
+            : base("name=Entities")
         {
         }
     
@@ -26,5 +26,6 @@ namespace ParisianUrban
         }
     
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+
 /*
                 -------GENERAL--------
 */
@@ -10,25 +11,64 @@
 }
 
 body {
-    font-family: "Lato" , sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.7;
     color: #777;
     padding: 30px;
+ 
 }
 
+.input-length {
+    width: 500px;
+    position: relative;
+    left: 400px;
+}
+
+/**section**/
+
+.section-login {
+    background-color: #F7F7F7;
+    padding: 25rem 0;
+    margin-top: -30vh;
+}
+
+.section-login .center-text .col-seperator {
+        column-count: 2;
+        column-rule: 6px solid black;
+        column-gap: 4px;
+        background-image: linear-gradient(to top left, #1da1f2 , rgba(133, 206, 250, 0.88));
+        width: 800px;
+        height: 700px;
+        margin: auto;
+
+    }
+
+    .section-login .center-text .col-seperator .login {
+        width: 500px;
+        height: 700px;
+        display: inline-block;
+        background-color: #F7F7F7;
+
+    }
 /*Comapny logo*/
-
 .logo-box {
-position: absolute;
-top: 40px;
-left: 40px;
-
+    position: absolute;
+    top: 40px;
+    left: 40px;
 }
 
 .logo {
 height: 100px;
+
+}
+
+.center-text {text-align: center;}
+
+.admin-header .center-text h1 {
+    font-family: "Collegiate";
+    color: goldenrod;
 }
 
 /*
@@ -67,19 +107,16 @@ animation: moveInRight 3s;
     transform: translate(-50%,-50%);
 }
 
-.center-top {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-    text-align: center;
+.secondary-head {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-image: linear-gradient(to right, #4ddbff, #4ddbff);
+    display: inline-block;
+    letter-spacing: 2px;
+    -webkit-background-clip: text;
+    color: transparent;
 }
-
-.main-text {
-    color: #fc4768 !important;
-    font-family: "FarewellAngelina";
-    font-weight: 300;
-}
-
 /*Header image*/
 .header {
     height: 95vh;
@@ -87,6 +124,7 @@ animation: moveInRight 3s;
     background-size: cover;
     background-position: center;
     clip-path: polygon(0 0, 100% 0, 100% 65vh,0 100%);
+    position: relative;
 }
 
 .admin-header {
@@ -200,6 +238,11 @@ box-shadow: 0 10px 7px;
 @font-face {
     font-family: "FarewellAngelina";
     src: url(../Fonts/farewell_angelina_display_sample.otf);
+}
+
+@font-face {
+    font-family: "Collegiate";
+    src: url(../Fonts/CollegiateFLF.ttf);
 }
 
 /*
