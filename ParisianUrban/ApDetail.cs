@@ -12,15 +12,18 @@ namespace ParisianUrban
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
-    public partial class Admin
+
+    public partial class ApDetail
     {
-        [Required(ErrorMessage = "ID is required.")]
-        public int ID { get; set; }
+        public int ApDetailID { get; set; }
 
-        [Required(ErrorMessage = "Password is required.")]
-        public string Password { get; set; }
+        [Display(Name = "Pet friendly?")]
+        public bool ApPetFriendly { get; set; }
 
-        public string Name { get; set; }
+        [Display(Name = "Bathroom #")]
+        public short ApBathroomNum { get; set; }
+
+        [Display(Name = "Furnished?")]
+        public bool ApFurnished { get; set; }
     }
 }

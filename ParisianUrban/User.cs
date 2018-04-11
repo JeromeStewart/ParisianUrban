@@ -11,14 +11,28 @@ namespace ParisianUrban
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         public int ID { get; set; }
+
+        [Display(Name = "First name")]
+        [Required(ErrorMessage = "First name is required.")]
         public string Firstname { get; set; }
+
+        [Display(Name = "Last name")]
+        [Required(ErrorMessage = "Last name is required.")]
         public string Lastname { get; set; }
+
+        [Required(ErrorMessage = "Email is required.")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Address is required.")]
         public string Address { get; set; }
+
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Password is required.")]
         public string PasswordHash { get; set; }
     }
 }

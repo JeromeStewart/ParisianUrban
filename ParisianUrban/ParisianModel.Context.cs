@@ -13,10 +13,10 @@ namespace ParisianUrban
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class ParisianDBEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public ParisianDBEntities()
+            : base("name=ParisianDBEntities")
         {
         }
     
@@ -26,6 +26,8 @@ namespace ParisianUrban
         }
     
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Apartment> Apartments { get; set; }
+        public virtual DbSet<ApDetail> ApDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

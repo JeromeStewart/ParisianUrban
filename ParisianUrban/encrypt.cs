@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ParisianUrban
 {
-    public static class PasswordHash
+    public static class encrypt
     {
         public static string hash(string password)
         {
