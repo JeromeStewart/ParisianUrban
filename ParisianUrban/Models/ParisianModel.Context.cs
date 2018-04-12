@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ParisianUrban
+namespace ParisianUrban.Models
 {
     using System;
     using System.Data.Entity;

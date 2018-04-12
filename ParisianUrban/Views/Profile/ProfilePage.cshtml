@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ParisianUrban.Models.User>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Parisian Urban | your profile</title>
+</head>
+<body>
+    <div> 
+        @foreach (var user in Model)
+        {
+            <h3>@user.Firstname</h3>
+        <ul>
+            <li>ID: @user.ID</li>
+            <li>Address: @user.Address</li>
+            <li>Email: @user.Email</li>
+        </ul>
+        }
+    </div>
+</body>
+</html>

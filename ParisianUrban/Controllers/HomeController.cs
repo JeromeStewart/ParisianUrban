@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ParisianUrban.Models;
 
 namespace ParisianUrban.Controllers
 {
     public class HomeController : Controller
     {
         private ParisianDBEntities DbContext = new ParisianDBEntities();
+
+        private User myUser = new User();
       
         // GET: Home
         [HttpGet]
         public ActionResult HomeDisplay()
         {
-   
+          
             return View("HomePage");
         }
 
@@ -22,7 +25,9 @@ namespace ParisianUrban.Controllers
         {
             ViewBag.name = TempData["userName"];
 
-            return View("Main");
+           
+
+            return View("Main",myUser);
         }
 
         [HttpPost]
@@ -79,16 +84,9 @@ namespace ParisianUrban.Controllers
 
             if (query.FirstOrDefault() != null)
             {
-                foreach (var item in query)
-                {
-                    ViewBag.greeting = "Welcome " + query.FirstOrDefault().Name;
+                ViewBag.Admin = query.FirstOrDefault().Name;
 
-                    Session["ID"] = query.FirstOrDefault().ID;
-
-                    Session["Password"] = query.FirstOrDefault().Password;
-                }
-
-                return View("AdminLogin");
+                return View("Main");
             }
 
             ViewBag.greeting = "Incorrect credentials";

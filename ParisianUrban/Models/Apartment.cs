@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ParisianUrban
+namespace ParisianUrban.Models
 {
     using System;
     using System.Collections.Generic;
@@ -22,18 +22,17 @@ namespace ParisianUrban
         public string ApAddress { get; set; }
 
         [Display(Name = "Description")]
-        [Required(ErrorMessage = "Decription is required.")]
-        [StringLength(150,ErrorMessage = "Description cannot be more than 150 characters.")]
+        [Required(ErrorMessage = "Description is required.")]
+        [StringLength(150,ErrorMessage = "Description cannot be longer than 150 characters.")]
         public string ApDescription { get; set; }
 
         [Display(Name = "Price")]
         [Required(ErrorMessage = "Price is required.")]
+        [DataType(DataType.Currency)]
         public double ApPrice { get; set; }
 
         public System.DateTime ApTimeStamp { get; set; }
-
         public string ApImage { get; set; }
-
         public int ApRefDetail { get; set; }
     }
 }
