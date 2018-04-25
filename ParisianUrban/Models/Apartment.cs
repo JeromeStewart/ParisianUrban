@@ -23,16 +23,19 @@ namespace ParisianUrban.Models
 
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Description is required.")]
-        [StringLength(150,ErrorMessage = "Description cannot be longer than 150 characters.")]
         public string ApDescription { get; set; }
 
         [Display(Name = "Price")]
         [Required(ErrorMessage = "Price is required.")]
-        [DataType(DataType.Currency)]
         public double ApPrice { get; set; }
 
+        [Display(Name = "Date posted.")]
         public System.DateTime ApTimeStamp { get; set; }
+
+        [Display(Name = "Image")]
         public string ApImage { get; set; }
+
         public int ApRefDetail { get; set; }
+        public Nullable<bool> ApStatus { get; set; }
     }
 }

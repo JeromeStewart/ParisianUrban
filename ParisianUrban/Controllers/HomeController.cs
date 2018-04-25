@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ParisianUrban.Models;
+using System.Web.Mvc.Html;
 
 namespace ParisianUrban.Controllers
 {
@@ -11,7 +12,7 @@ namespace ParisianUrban.Controllers
     {
         private ParisianDBEntities DbContext = new ParisianDBEntities();
 
-        private User myUser = new User();
+        private Apartment Ap = new Apartment();
       
         // GET: Home
         [HttpGet]
@@ -21,13 +22,18 @@ namespace ParisianUrban.Controllers
             return View("HomePage");
         }
 
+
         public ActionResult index()
         {
             ViewBag.name = TempData["userName"];
-
-           
-
-            return View("Main",myUser);
+            if (Session["ID"] != null)
+            {
+                return View("Main", DbContext.Apartments.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Auth");
+            }
         }
 
         [HttpPost]
@@ -49,6 +55,19 @@ namespace ParisianUrban.Controllers
                 return View("HomePage");
         }
 
+        [HttpGet]
+        public ActionResult About()
+        {
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+        }
 
         [HttpGet]
         public ActionResult AdminDisplay()
@@ -86,7 +105,9 @@ namespace ParisianUrban.Controllers
             {
                 ViewBag.Admin = query.FirstOrDefault().Name;
 
-                return View("Main");
+                Session["AdminID"] = query.FirstOrDefault().ID;
+
+                return RedirectToAction("AdminMain");
             }
 
             ViewBag.greeting = "Incorrect credentials";
@@ -94,45 +115,58 @@ namespace ParisianUrban.Controllers
             return View("AdminLogin");
         }
 
-        [HttpGet]
-        [Route(Name = "Login")]
-        public ActionResult UserLogin()
+        public ActionResult AdminMain()
         {
 
-            return View("Login");
-        }
-
-        [HttpPost]
-        [Route(Name = "Login")]
-        public ActionResult UserLogin(User user)
-        {
-
-            var query = (
-                  from db in DbContext.Users
-                  where db.ID == user.ID && db.PasswordHash == user.PasswordHash
-                  select new
-                  {
-                      db.ID,
-                      db.PasswordHash,
-                      db.Firstname
-                  }).ToList();
-
-            if (query.FirstOrDefault() != null)
+            if (Session["AdminID"] != null)
             {
-                foreach (var item in query)
-                {
-                    ViewBag.greeting = "Welcome " + query.FirstOrDefault().Firstname;
-
-                    Session["ID"] = query.FirstOrDefault().ID;
-
-                   // Session["Password"] = query.FirstOrDefault().Password;
-                }
-
-                return View("main");
+                return View("AdminMainPage", DbContext.PropertyManagers.ToList());
             }
-
-            return View("Login");
+            else
+            {
+                return RedirectToAction("AdminDisplay","Home");
+            }
         }
+
+        //[HttpGet]
+        //[Route(Name = "Login")]
+        //public ActionResult UserLogin()
+        //{
+
+        //    return View("Login");
+        //}
+
+        //[HttpPost]
+        //[Route(Name = "Login")]
+        //public ActionResult UserLogin(User user)
+        //{
+
+        //    var query = (
+        //          from db in DbContext.Users
+        //          where db.ID == user.ID && db.PasswordHash == user.PasswordHash
+        //          select new
+        //          {
+        //              db.ID,
+        //              db.PasswordHash,
+        //              db.Firstname
+        //          }).ToList();
+
+        //    if (query.FirstOrDefault() != null)
+        //    {
+        //        foreach (var item in query)
+        //        {
+        //            ViewBag.greeting = "Welcome " + query.FirstOrDefault().Firstname;
+
+        //            Session["ID"] = query.FirstOrDefault().ID;
+
+        //           // Session["Password"] = query.FirstOrDefault().Password;
+        //        }
+
+        //        return View("main");
+        //    }
+
+        //    return View("Login");
+        //}
 
     }
 }

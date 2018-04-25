@@ -20,6 +20,78 @@
  
 }
 
+.container-list {
+   margin-top: 20px;
+}
+
+.about-container {
+    max-width: 960px;
+    margin: 0 auto;
+    color: #4E4343;
+    font-size: 15px;
+    padding: 25px;
+}
+
+.parallax-effect {
+  background: url(Images/About-img.jpg) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+}
+
+.parallax-effect2 {
+    background: url(Images/Headquarters.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+}
+
+.hero-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: absolute;
+    background-size: contain;
+    max-width: 450px;
+    max-height: 450px;
+}
+
+.paragraph-font {
+    font-family: "coolvetica";
+}
+
+
+.price {
+    float: right;
+    color: green;
+}
+
+.address {
+    padding-right: 5px;
+}
+
+.price-detail {
+    color: green;
+    margin-top: 10px;
+}
+
+.details {
+    margin-bottom: 80px;
+    margin-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.details-title {
+    align-items: center;
+    display: flex;
+}
+
+.main-column {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
 .main-img {
     background: url(Images/Main-img.jpg);
     width: 100%;
@@ -28,10 +100,36 @@
     background-position: center;
 }
 
+.detail-container {
+    position: relative;
+}
+
+.btn-center {
+    margin-left: 40em;
+}
+
+
+
 .input-length {
     width: 500px;
     position: relative;
     left: 400px;
+}
+
+.card-space {
+   margin: 15px 20px;
+   display: flex;
+}
+
+.card-space .card {
+    display: inline-block;
+    margin-right: 13px;
+    flex: 0.4;
+    position: initial;
+}
+
+.card-body .card-title {
+    display: inline;
 }
 
 /**section**/
@@ -88,8 +186,8 @@
 }
 
 .logo {
-height: 100px;
-
+    height: 100px;
+    font-family: FarewellAngelina
 }
 
 .center-text {text-align: center;}
@@ -100,9 +198,6 @@ height: 100px;
 }
 
                                 /****Login page**********/
-.main-container {
-
-}
 
 .main-container .main-content {
     width: 980px;
@@ -234,6 +329,13 @@ animation: moveInRight 3s;
     background-position: center;
 }
 
+.pm-header {
+    height: 20vh;
+    background-image: linear-gradient(to right bottom, rgba(230, 250, 255, 0.801),#C9989E),url('Images/Tenant.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
                         /*Header button link*/
 .btn,
 .btn:link,
@@ -358,6 +460,34 @@ nav ul li a.active {
     border-radius: 6px;
 }
 
+.about-nav {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 10px 100px;
+    box-sizing: border-box;
+    transition: .3s;
+    margin-top: 20px;
+}
+
+label {
+    margin: 0 40px 0 0;
+    font-size: 24px;
+    line-height: 70px;
+    display: none;
+    width: 26px;
+    float: right;
+}
+
+#toggle {
+    display: none;
+}
+
+.menu li a {
+    clear: right;
+}
 
 
 /*
@@ -429,6 +559,33 @@ nav ul li a.active {
     font-family: "acme";
     src: url(../Fonts/Acme-Regular.ttf);
 
+}
+
+                                     /*MEDIA QUERIES*/
+@media (max-width: 18rem) {
+    .card-space .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1035px) {
+   label {
+       display: block;
+       cursor: pointer;
+   }
+   .menu {
+       text-align: center;
+       width: 100%;
+       display: none;
+   }
+   .menu li a {
+      display: block;
+      border-bottom: 1px solid #EAEAEB;
+      margin: 0;
+   }
+   #toggle:checked + .menu {
+       display: block;
+   }
 }
 
 /*

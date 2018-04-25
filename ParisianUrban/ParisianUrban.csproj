@@ -97,13 +97,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ApImages\Apartment_1.JPG" />
+    <Content Include="Content\ApImages\Apartment_2.JPG" />
+    <Content Include="Content\ApImages\Apartment_3.JPG" />
+    <Content Include="Content\ApImages\Apartment_4.JPG" />
+    <Content Include="Content\CSS\Images\About-img.jpg" />
+    <Content Include="Content\CSS\Images\Headquarters.jpg" />
     <Content Include="Content\CSS\Images\imageedit_2_8893402501.png" />
     <Content Include="Content\CSS\Images\logo.png" />
     <Content Include="Content\CSS\Images\Main-img.jpg" />
     <Content Include="Content\CSS\Images\Tenant.jpg" />
-    <Content Include="Content\CSS\Images\tom-thain-145829-unsplash.jpg" />
     <Content Include="Content\CSS\Style.css" />
     <Content Include="Content\JavaScript\JavaScript.js" />
+    <Content Include="Content\JavaScript\parallax.min.js" />
+    <Content Include="Content\CSS\LumenTheme.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\ParisianModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -120,7 +127,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ApartmentController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\PropertyManagerController.cs" />
     <Compile Include="Models\Admin.cs">
       <DependentUpon>ParisianModel.tt</DependentUpon>
     </Compile>
@@ -137,6 +146,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="encrypt.cs" />
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>ParisianModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ParisianModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,6 +163,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ParisianModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PropertyManager.cs">
+      <DependentUpon>ParisianModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\User.cs">
@@ -178,6 +193,15 @@
       <DependentUpon>ParisianModel.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Profile\ProfilePage.cshtml" />
+    <Content Include="Views\Apartment\ApartmentDetails.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\PropertyManager\PmMainPage.cshtml" />
+    <Content Include="Views\Apartment\ApartmentEdit.cshtml" />
+    <Content Include="Views\Apartment\NewApartment.cshtml" />
+    <Content Include="Views\PropertyManager\PmLogin.cshtml" />
+    <Content Include="Views\Home\AdminMainPage.cshtml" />
+    <Content Include="Views\PropertyManager\PmEditPage.cshtml" />
+    <Content Include="Views\PropertyManager\NewPropertyManager.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

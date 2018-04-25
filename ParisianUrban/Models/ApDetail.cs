@@ -11,22 +11,12 @@ namespace ParisianUrban.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class ApDetail
     {
         public int ApDetailID { get; set; }
-
-        [Display(Name = "Pet Friendly")]
-        [Required(ErrorMessage = "This information is required.")]
         public bool ApPetFriendly { get; set; }
-
-        [Display(Name = "number of bathrooms")]
-        [Required(ErrorMessage = "number of bathrooms required.")]
         public short ApBathroomNum { get; set; }
-
-        [Display(Name = "Furnished")]
-        [Required(ErrorMessage = "This information is required.")]
         public bool ApFurnished { get; set; }
     }
 }

@@ -29,5 +29,7 @@ namespace ParisianUrban.Models
         public virtual DbSet<Apartment> Apartments { get; set; }
         public virtual DbSet<ApDetail> ApDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<PropertyManager> PropertyManagers { get; set; }
     }
 }

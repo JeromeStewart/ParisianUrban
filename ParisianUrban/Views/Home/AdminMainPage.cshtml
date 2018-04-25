@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ParisianUrban.Models.PropertyManager>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Parisian Urban | Admin page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/CSS/LumenTheme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container container-list">
+        <h2 style="font-family:'coolvetica';text-align:center;">List Of Property Managers</h2>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Property manager ID</th>
+                    <th>Property manager name</th>
+                    <th>Property manager email</th>
+
+                </tr>
+            </thead>
+           
+            <tbody>
+                @foreach (var pm in Model)
+                 {
+            <tr>
+                <td>@Html.ActionLink(pm.PmID.ToString(), "PmEdit","PropertyManager", new { ID = pm.PmID }, null)</td>
+                <td>@pm.PmName</td>
+                <td>@pm.PmEmail</td>
+            </tr>
+                 }
+            </tbody>
+        </table><br /><br />
+        <button type="submit" class="btn btn-primary">@Html.ActionLink("Add new apartment", "NewApartment")</button>
+    </div>
+</body>
+</html>

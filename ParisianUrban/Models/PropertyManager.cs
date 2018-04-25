@@ -13,15 +13,18 @@ namespace ParisianUrban.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     
-    public partial class Admin
+    public partial class PropertyManager
     {
-        [Required(ErrorMessage = "ID is required.")]
-        public int ID { get; set; }
+        [Display(Name = "ID")]
+        public int PmID { get; set; }
 
-        [Required(ErrorMessage = "Password is required.")]
-        public string Password { get; set; }
+        [Display(Name = "Name")]
+        public string PmName { get; set; }
 
+        [Display(Name = "Email")]
+        public string PmEmail { get; set; }
 
-        public string Name { get; set; }
+        [Display(Name = "Password")]
+        public string PmPassword { get; set; }
     }
 }

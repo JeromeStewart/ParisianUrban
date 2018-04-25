@@ -9,6 +9,9 @@
         <EntityTypeShape EntityType="ParisianDBModel.Apartment" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ParisianDBModel.ApDetail" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ParisianDBModel.User" Width="1.5" PointX="7.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParisianDBModel.Message" Width="1.5" PointX="9.5" PointY="1.25" />
+        <AssociationConnector Association="ParisianDBModel.FK_Messages_Users" />
+        <EntityTypeShape EntityType="ParisianDBModel.PropertyManager" Width="1.5" PointX="0.75" PointY="2.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

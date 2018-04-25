@@ -33,6 +33,7 @@ namespace ParisianUrban.Controllers
                   where db.Email == Email && db.PasswordHash == PasswordHash
                   select new
                   {
+                      db.ID,
                       db.Email,
                       db.PasswordHash,
                       db.Firstname
@@ -40,17 +41,9 @@ namespace ParisianUrban.Controllers
 
                 if (query.FirstOrDefault() != null)
                 {
-                    //foreach (var item in query)
-                    //{
-                    //    ViewBag.greeting = "Welcome " + query.FirstOrDefault().Firstname;
 
-                    //    //Session["ID"] = query.FirstOrDefault().Email;
-
-                    //    //Session["Password"] = query.FirstOrDefault().PasswordHash;
-                    //}
-
-                    TempData["userName"] = query.FirstOrDefault().Firstname;
-
+                    TempData["userName"] = query.FirstOrDefault().Firstname; //Store user first name to display in navbar.
+                    Session["ID"] = query.FirstOrDefault().ID; //Store current user ID to verify if they are logged in.
                     return RedirectToAction("index", "Home");
                 }
                

@@ -11,17 +11,14 @@ namespace ParisianUrban.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
-    public partial class Admin
+    public partial class Message
     {
-        [Required(ErrorMessage = "ID is required.")]
-        public int ID { get; set; }
-
-        [Required(ErrorMessage = "Password is required.")]
-        public string Password { get; set; }
-
-
-        public string Name { get; set; }
+        public int MessID { get; set; }
+        public string Description { get; set; }
+        public System.DateTime DatePosted { get; set; }
+        public int CreatorID { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }
