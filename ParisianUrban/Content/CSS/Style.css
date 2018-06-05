@@ -1,0 +1,597 @@
+
+/*
+                -------GENERAL--------
+*/
+
+/*Targeting all element tags. Reseting default padding and margin.*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+ 
+}
+
+.container-list {
+   margin-top: 20px;
+}
+
+.about-container {
+    max-width: 960px;
+    margin: 0 auto;
+    color: #4E4343;
+    font-size: 15px;
+    padding: 25px;
+}
+
+.parallax-effect {
+  background: url(Images/About-img.jpg) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 500px;
+}
+
+.parallax-effect2 {
+    background: url(Images/Headquarters.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+}
+
+.hero-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: absolute;
+    background-size: contain;
+    max-width: 450px;
+    max-height: 450px;
+}
+
+.paragraph-font {
+    font-family: "coolvetica";
+}
+
+
+.price {
+    float: right;
+    color: green;
+}
+
+.address {
+    padding-right: 5px;
+}
+
+.price-detail {
+    color: green;
+    margin-top: 10px;
+}
+
+.details {
+    margin-bottom: 80px;
+    margin-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.details-title {
+    align-items: center;
+    display: flex;
+}
+
+.main-column {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.main-img {
+    background: url(Images/Main-img.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.detail-container {
+    position: relative;
+}
+
+.btn-center {
+    margin-left: 40em;
+}
+
+
+
+.input-length {
+    width: 500px;
+    position: relative;
+    left: 400px;
+}
+
+.card-space {
+   margin: 15px 20px;
+   display: flex;
+}
+
+.card-space .card {
+    display: inline-block;
+    margin-right: 13px;
+    flex: 0.4;
+    position: initial;
+}
+
+.card-body .card-title {
+    display: inline;
+}
+
+/**section**/
+
+.section-login {
+    background-color: #F7F7F7;
+    padding: 25rem 0;
+    margin-top: -30vh;
+    max-width:100%;
+}
+
+.section-login .center-text .col-seperator {
+        column-count: 2;
+        column-rule: 6px solid black;
+        column-gap: 4px;
+        background-image: linear-gradient(to top left, #1da1f2, rgba(133, 206, 250, 0.88));
+        width: 800px;
+        height: 700px;
+        margin: auto;
+        font-family: "coolvetica";
+        color: white;
+}
+
+.section-login .center-text .col-seperator div.login {
+        width: 500px;
+        height: 700px;
+        display: inline-block;
+        background-color: #F7F7F7;
+        color: #777;
+        padding-left: 6px;
+    }
+
+.section-login input:focus {
+   background-color: #c8d6e5;
+    }
+
+.section2 p {
+    width: 900px;
+    margin: 30px auto;
+    text-align: justify;
+    font-size: 30px;
+}
+
+.middle-center {
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Comapny logo*/
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 100px;
+    font-family: FarewellAngelina
+}
+
+.center-text {text-align: center;}
+
+.admin-header .center-text h1 {
+    font-family: "Collegiate";
+    color: goldenrod;
+}
+
+                                /****Login page**********/
+
+.main-container .main-content {
+    width: 980px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.main-container .main-content .content-position {
+    display: inline-block;
+    vertical-align: top;
+    }
+
+.size {
+    width: 565px;
+}
+
+.black {
+    color: #333;
+}
+
+.login-text {
+    font-size: 36px;
+    font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    line-height: 120%;
+    margin-bottom: 5px;
+}
+
+.space {
+    margin-right: 15.999px
+}
+
+.side-left {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+}
+
+.main-text {
+    font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif;
+    font-size: 23px;
+    line-height: 120%;
+    padding: 42px 0 24px;
+    font-size: 28px;
+}
+
+.icon-1 {
+    vertical-align: middle;
+    text-align: center;
+    width: 55px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+div .side-container1 {
+    display: inline-block;
+    vertical-align: middle;
+    width: 440px;
+}
+
+.mbl {
+   margin-bottom: 20px;
+}
+
+.second-container {
+    padding-bottom: 10px;
+}
+
+/*
+                            HEADER
+*/
+.heading-text {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.company-name {
+display: block;
+font-size: 60px;
+font-weight: 400;
+letter-spacing: 19px;
+animation: moveInLeft 3s;
+}
+
+.company-slogan {
+display: block;
+font-size: 19px;
+font-weight: 400;
+letter-spacing: 12px;
+margin-top: 30px;
+animation: moveInRight 3s;
+
+}
+
+.center-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+}
+
+.secondary-head {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-image: linear-gradient(to right, #4ddbff, #4ddbff);
+    display: inline-block;
+    letter-spacing: 2px;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*Header image*/
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba(230, 250, 255, 0.801),#4ddbff),url('Images/Tenant.jpg');
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0, 100% 65vh,0 100%);
+    position: relative;
+}
+
+.admin-header {
+    height: 20vh;
+    background-image: linear-gradient(to right bottom, rgba(230, 250, 255, 0.801),#4ddbff),url('Images/Tenant.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.pm-header {
+    height: 20vh;
+    background-image: linear-gradient(to right bottom, rgba(230, 250, 255, 0.801),#C9989E),url('Images/Tenant.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+                        /*Header button link*/
+.btn,
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    transition: all .5s;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+    padding: 10px,20px;
+    margin-top: 45px;
+    border-radius: 40px;
+    transition: all .3s;
+    animation: moveInUp 3s;
+}
+
+.btn:hover {
+transform: translateY(-4px);
+box-shadow: 0 10px 7px;
+
+}
+
+.btn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 7px;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+                       /*Nav*/
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 10px 100px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+nav.black {
+    background: rgba(0,0,0,0.8);
+    height: 100px;
+    padding: 10px 100px;
+}
+
+nav .logo {
+    padding: 22px 20px;
+    height: 80px;
+    float: left;
+    font-size: 24px;
+    transition: .3s;
+}
+
+nav.black .logo {
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    float: right;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    font-family: "acme";
+}
+
+nav ul li a {
+    line-height: 80px;
+    color: #151515;
+    padding: 12px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+nav.black ul li a {
+    color: #fff;
+}
+
+nav.black div .logo {
+  color: #fff;
+}
+
+nav ul li a:focus {
+    outline: none;
+}
+
+nav ul li a.active {
+    background: #E2472F;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.about-nav {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 10px 100px;
+    box-sizing: border-box;
+    transition: .3s;
+    margin-top: 20px;
+}
+
+label {
+    margin: 0 40px 0 0;
+    font-size: 24px;
+    line-height: 70px;
+    display: none;
+    width: 26px;
+    float: right;
+}
+
+#toggle {
+    display: none;
+}
+
+.menu li a {
+    clear: right;
+}
+
+
+/*
+                            ANIMATIONS AND FONTS
+*/
+
+@keyframes moveInLeft {
+     0% {
+       opacity: 0;
+       transform: translateX(-100px);
+     }
+
+     80% {
+         transform: translateX(10px);
+     }
+
+     100% {
+       opacity: 1;
+       transform: translateX(0);
+     }
+}
+
+@keyframes moveInRight {
+    0% {
+         opacity: 0;
+         transform: translateX(100px);
+    }
+
+    80% {
+         transform: translateX(-20px);
+    }
+
+    100% {
+     opacity: 1;
+     transform: translateX(0px);
+    }
+}
+
+@keyframes moveInUp {
+    0% {
+         transform: translateY(100px);
+         opacity: 0;
+    }
+
+    100% {
+         transform: translateY(0);
+         opacity: 1;
+    }
+}
+
+@font-face {
+    font-family: "FarewellAngelina";
+    src: url(../Fonts/farewell_angelina_display_sample.otf);
+}
+
+@font-face {
+    font-family: "Collegiate";
+    src: url(../Fonts/CollegiateFLF.ttf);
+}
+
+@font-face {
+    font-family: "coolvetica";
+    src: url('../Fonts/coolvetica rg.ttf');
+    font-weight: 400;
+   
+}
+
+@font-face {
+    font-family: "acme";
+    src: url(../Fonts/Acme-Regular.ttf);
+
+}
+
+                                     /*MEDIA QUERIES*/
+@media (max-width: 18rem) {
+    .card-space .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1035px) {
+   label {
+       display: block;
+       cursor: pointer;
+   }
+   .menu {
+       text-align: center;
+       width: 100%;
+       display: none;
+   }
+   .menu li a {
+      display: block;
+      border-bottom: 1px solid #EAEAEB;
+      margin: 0;
+   }
+   #toggle:checked + .menu {
+       display: block;
+   }
+}
+
+/*
+                credits
+
+        <div>Logo made with <a href="https://
+www.designevo.com/" title="Free Online Logo Maker">DesignEvo</a></div>
+*/
+

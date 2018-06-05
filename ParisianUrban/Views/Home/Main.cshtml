@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ParisianUrban.Models.Apartment>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Parisian Urban | Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+    <link href="~/Content/CSS/Style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            }
+            else {
+                $('nav').removeClass('black');
+            }
+        })
+    </script>
+</head>
+<body>
+    <nav>
+        <label for="mnu-toggle">&#9776;</label>
+        <input type="checkbox" id="toggle" />
+        <div class="logo">Parisian Urban</div>
+        <ul class="menu">
+            <li><a href="@Url.Action("index","Home")">Home</a></li>
+            <li><a href="@Url.Action("About","Home")">About</a></li>
+            <li><a href="#">search</a></li>
+            <li><a href="#">premium Account</a></li>
+            <li><a class="active" href="@Url.Action("ShowProfile", "Profile" , new {Firstname = ViewBag.name })">@ViewBag.name @ViewBag.Admin <i class="far fa-user"></i></a></li>
+        </ul>
+    </nav>
+           
+    <div class="main-img"></div>
+    <div class="card-space">
+        @foreach (var ap in Model)
+    {
+        <div class="card" style="width:18rem;">
+            <img class="card-img-top" src="@Url.Content(ap.ApImage)" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@ap.ApAddress</h5> <h5 class="card-title price">$@ap.ApPrice</h5>
+                <p class="card-text">@ap.ApDescription</p>
+                <p>Posted: @ap.ApTimeStamp.ToString("MMMM dd, yyyy")</p>
+                <a href="@Url.Action("ApartmentDetails","Apartment", new {ID = ap.ApID, Image = Url.Content(ap.ApImage), Address =  ap.ApAddress, Description = ap.ApDescription, Price = ap.ApPrice})" class="btn btn-primary">View details</a>
+            </div>
+        </div>
+}
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model ParisianUrban.Models.PropertyManager
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Parisian Urban | Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/CSS/Style.css" />
+</head>
+<body>
+    <header class="pm-header">
+        <div class="center-text">
+            <h1 style="color:#F9EBED!important">Property Manager</h1>
+            <h3>@ViewBag.greeting</h3>
+        </div>
+    </header><br /><br />
+
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @using (Html.BeginForm("PmLogin", "PropertyManager", FormMethod.Post))
+    {
+        <div class="text-center">
+            @Html.LabelFor(l => l.PmEmail)
+            <div class="input-length">
+                @Html.TextBoxFor(t => t.PmEmail, new { @class = "form-control", @placeHolder = "Email" }) <br /><br />
+            </div>
+        </div>
+
+        <div class="text-center">
+            @Html.LabelFor(l => l.PmPassword)
+            <div class="input-length">
+                @Html.PasswordFor(t => t.PmPassword, new { @class = "form-control", @placeHolder = "password" })
+            </div>
+        </div>
+        <br /><br />
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+
+    }
+    <br />
+</body>
+</html>

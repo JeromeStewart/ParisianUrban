@@ -1,0 +1,43 @@
+﻿@model ParisianUrban.Models.Apartment
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NewApartment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/CSS/LumenTheme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Manage Apartments</h2>
+
+        @using (Html.BeginForm("AddApartment", "Apartment", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(l => l.ApAddress)
+            @Html.TextBoxFor(ap => ap.ApAddress, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(l => l.ApPrice)
+            @Html.TextBoxFor(ap => ap.ApPrice, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(l => l.ApTimeStamp)
+            @Html.TextBoxFor(ap => ap.ApTimeStamp, "{0:d MMM yyyy}", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(l => l.ApDescription)
+            @Html.TextAreaFor(ap => ap.ApDescription, new { @class = "form-control" })
+        </div>
+          @Html.HiddenFor(i => i.ApID)<br /><br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+}
+    </div>
+
+</body>
+</html>

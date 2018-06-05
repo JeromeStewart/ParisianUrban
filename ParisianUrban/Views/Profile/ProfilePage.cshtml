@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ParisianUrban.Models.User>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Parisian Urban | your profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+        @foreach (var user in Model)
+        {
+            <div class="container" style="margin-top:25px;"> 
+                <ul class="list-group">
+                    <li class="list-group-item active text-center">My information</li>
+                    <li class="list-group-item text-center">First name: @user.Firstname</li>
+                    <li class="list-group-item text-center">Last name: @user.Lastname</li>
+                    <li class="list-group-item text-center">Email: @user.Email</li>
+                    <li class="list-group-item text-center">Address: @user.Address</li>
+                </ul>
+            </div>
+        }
+</body>
+</html>

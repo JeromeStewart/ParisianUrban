@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ParisianDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apartment">
+          <Key>
+            <PropertyRef Name="ApID" />
+          </Key>
+          <Property Name="ApID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApDescription" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ApPrice" Type="float" Nullable="false" />
+          <Property Name="ApTimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="ApImage" Type="nvarchar" MaxLength="85" Nullable="false" />
+          <Property Name="ApRefDetail" Type="int" Nullable="false" />
+          <Property Name="ApStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="ApDetails">
+          <Key>
+            <PropertyRef Name="ApDetailID" />
+          </Key>
+          <Property Name="ApDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApPetFriendly" Type="bit" Nullable="false" />
+          <Property Name="ApBathroomNum" Type="smallint" Nullable="false" />
+          <Property Name="ApFurnished" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="MessID" />
+          </Key>
+          <Property Name="MessID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="DatePosted" Type="datetime" Nullable="false" />
+          <Property Name="CreatorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyManager">
+          <Key>
+            <PropertyRef Name="PmID" />
+          </Key>
+          <Property Name="PmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PmName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PmEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PmPassword" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Messages_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Messages" Type="Self.Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messages">
+              <PropertyRef Name="CreatorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ParisianDBModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apartment" EntityType="Self.Apartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApDetails" EntityType="Self.ApDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyManager" EntityType="Self.PropertyManager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Messages_Users" Association="Self.FK_Messages_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Messages" EntitySet="Messages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ParisianDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apartment">
+          <Key>
+            <PropertyRef Name="ApID" />
+          </Key>
+          <Property Name="ApID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApPrice" Type="Double" Nullable="false" />
+          <Property Name="ApTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ApImage" Type="String" MaxLength="85" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApRefDetail" Type="Int32" Nullable="false" />
+          <Property Name="ApStatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ApDetail">
+          <Key>
+            <PropertyRef Name="ApDetailID" />
+          </Key>
+          <Property Name="ApDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApPetFriendly" Type="Boolean" Nullable="false" />
+          <Property Name="ApBathroomNum" Type="Int16" Nullable="false" />
+          <Property Name="ApFurnished" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Messages" Relationship="ParisianDBModel.FK_Messages_Users" FromRole="User" ToRole="Message" />
+        </EntityType>
+        <EntityContainer Name="ParisianDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Apartments" EntityType="Self.Apartment" />
+          <EntitySet Name="ApDetails" EntityType="Self.ApDetail" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Messages" EntityType="ParisianDBModel.Message" />
+          <AssociationSet Name="FK_Messages_Users" Association="ParisianDBModel.FK_Messages_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <EntitySet Name="PropertyManagers" EntityType="ParisianDBModel.PropertyManager" />
+        </EntityContainer>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessID" />
+          </Key>
+          <Property Name="MessID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="DatePosted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ParisianDBModel.FK_Messages_Users" FromRole="Message" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Messages_Users">
+          <End Type="ParisianDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="ParisianDBModel.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="CreatorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PropertyManager">
+          <Key>
+            <PropertyRef Name="PmID" />
+          </Key>
+          <Property Name="PmID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PmName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PmEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PmPassword" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ParisianDBModelStoreContainer" CdmEntityContainer="ParisianDBEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ParisianDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apartments">
+            <EntityTypeMapping TypeName="ParisianDBModel.Apartment">
+              <MappingFragment StoreEntitySet="Apartment">
+                <ScalarProperty Name="ApStatus" ColumnName="ApStatus" />
+                <ScalarProperty Name="ApID" ColumnName="ApID" />
+                <ScalarProperty Name="ApAddress" ColumnName="ApAddress" />
+                <ScalarProperty Name="ApDescription" ColumnName="ApDescription" />
+                <ScalarProperty Name="ApPrice" ColumnName="ApPrice" />
+                <ScalarProperty Name="ApTimeStamp" ColumnName="ApTimeStamp" />
+                <ScalarProperty Name="ApImage" ColumnName="ApImage" />
+                <ScalarProperty Name="ApRefDetail" ColumnName="ApRefDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApDetails">
+            <EntityTypeMapping TypeName="ParisianDBModel.ApDetail">
+              <MappingFragment StoreEntitySet="ApDetails">
+                <ScalarProperty Name="ApDetailID" ColumnName="ApDetailID" />
+                <ScalarProperty Name="ApPetFriendly" ColumnName="ApPetFriendly" />
+                <ScalarProperty Name="ApBathroomNum" ColumnName="ApBathroomNum" />
+                <ScalarProperty Name="ApFurnished" ColumnName="ApFurnished" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ParisianDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="ParisianDBModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MessID" ColumnName="MessID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyManagers">
+            <EntityTypeMapping TypeName="ParisianDBModel.PropertyManager">
+              <MappingFragment StoreEntitySet="PropertyManager">
+                <ScalarProperty Name="PmPassword" ColumnName="PmPassword" />
+                <ScalarProperty Name="PmEmail" ColumnName="PmEmail" />
+                <ScalarProperty Name="PmName" ColumnName="PmName" />
+                <ScalarProperty Name="PmID" ColumnName="PmID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

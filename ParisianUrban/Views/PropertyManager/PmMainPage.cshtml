@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ParisianUrban.Models.Apartment>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Parisian Urban | AdminMainPage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/CSS/LumenTheme.css" rel="stylesheet" />
+    </head>
+<body>
+    <div class="container container-list">
+        <h2 style="font-family:'coolvetica';text-align:center;">List Of Apartments</h2>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Apartment address</th>
+                    <th>Apartment price</th>
+                    <th>Apartment description</th>
+                    <th>Date posted</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ap in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(ap.ApAddress, "ApartmentEdit", "Apartment", new { ID = ap.ApID }, null)</td>
+                    <td>$@ap.ApPrice</td>
+                    <td>@ap.ApDescription</td>
+                    <td>@ap.ApTimeStamp.ToString("MMMM dd, yyyy")</td>
+                    @if (ap.ApStatus == true)
+                    {
+                        <td>Available</td>
+                    }
+                    else
+                    {
+                         <td>Available</td>
+                    }
+
+                </tr>
+        }
+            </tbody>
+        </table><br /><br />
+        <button type="submit" class="btn btn-primary">@Html.ActionLink("Add new apartment","NewApartment")</button>
+    </div>
+</body>
+</html>
